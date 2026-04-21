@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: bt_api_bydfi
+Version: 0.1.0
+Summary: BYDFi exchange plugin for bt_api
+Author-email: cloudQuant <yunjinqi@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/cloudQuant/bt_api
+Project-URL: Documentation, https://cloudquant.github.io/bt_api/
+Keywords: bt_api,bydfi,exchange,trading
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.9
+Requires-Dist: bt_api_base>=0.1.0
