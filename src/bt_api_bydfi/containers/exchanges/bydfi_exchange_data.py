@@ -35,7 +35,6 @@ def _get_bydfi_config() -> Any | None:
 
 
 class BYDFiExchangeData(ExchangeData):
-
     def __init__(self) -> None:
         super().__init__()
         self.exchange_name = "bydfi"
@@ -68,11 +67,11 @@ class BYDFiExchangeData(ExchangeData):
             self.exchange_name = asset_cfg.exchange_name
         if config.base_urls and config.base_urls.rest:
             self.rest_url = config.base_urls.rest.get(
-                asset_type, config.base_urls.rest.get("default", self.rest_url)
+                asset_type, config.base_urls.rest.get("default", self.rest_url),
             )
         if config.base_urls and config.base_urls.wss:
             self.wss_url = config.base_urls.wss.get(
-                asset_type, config.base_urls.wss.get("default", self.wss_url)
+                asset_type, config.base_urls.wss.get("default", self.wss_url),
             )
         if asset_cfg.rest_paths:
             self.rest_paths.update(asset_cfg.rest_paths)
@@ -102,7 +101,6 @@ class BYDFiExchangeData(ExchangeData):
 
 
 class BYDFiExchangeDataSpot(BYDFiExchangeData):
-
     def __init__(self) -> None:
         super().__init__()
         self.asset_type = "spot"

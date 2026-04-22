@@ -10,12 +10,13 @@ import time
 from typing import Any
 from urllib.parse import urlencode
 
-from bt_api_bydfi.containers.exchanges.bydfi_exchange_data import BYDFiExchangeDataSpot
 from bt_api_base.containers.requestdatas.request_data import RequestData
 from bt_api_base.feeds.capability import Capability
 from bt_api_base.feeds.feed import Feed
 from bt_api_base.feeds.http_client import HttpClient
 from bt_api_base.logging_factory import get_logger
+
+from bt_api_bydfi.containers.exchanges.bydfi_exchange_data import BYDFiExchangeDataSpot
 
 
 class BYDFiRequestData(Feed):
@@ -65,7 +66,7 @@ class BYDFiRequestData(Feed):
             sign_str = f"{api_key}{timestamp}{query_string}{body_str}"
 
             signature = hmac.new(
-                secret.encode("utf-8"), sign_str.encode("utf-8"), hashlib.sha256
+                secret.encode("utf-8"), sign_str.encode("utf-8"), hashlib.sha256,
             ).hexdigest()
             return signature
         return ""
@@ -151,7 +152,7 @@ class BYDFiRequestData(Feed):
                 "symbol_name": "",
                 "asset_type": self.asset_type,
                 "request_type": "get_server_time",
-            }
+            },
         )
         return "GET /v1/public/time", {}, extra_data
 

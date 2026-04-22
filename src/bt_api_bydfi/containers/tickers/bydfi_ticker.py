@@ -12,7 +12,6 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 
 class BYDFiRequestTickerData(TickerData):
-
     def __init__(self, ticker_info, symbol_name, asset_type, has_been_json_encoded=False) -> None:
         super().__init__(ticker_info, has_been_json_encoded)
         self.symbol_name = symbol_name

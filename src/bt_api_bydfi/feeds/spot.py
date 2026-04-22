@@ -7,6 +7,7 @@ from __future__ import annotations
 from typing import Any
 
 from bt_api_base.feeds.capability import Capability
+
 from bt_api_bydfi.feeds.request_base import BYDFiRequestData
 
 
@@ -43,7 +44,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "exchange_name": self.exchange_name,
                 "normalize_function": self._get_tick_normalize_function,
-            }
+            },
         )
         return path, params, extra_data
 
@@ -81,7 +82,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "exchange_name": self.exchange_name,
                 "normalize_function": self._get_depth_normalize_function,
-            }
+            },
         )
         return path, params, extra_data
 
@@ -121,7 +122,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "exchange_name": self.exchange_name,
                 "normalize_function": self._get_kline_normalize_function,
-            }
+            },
         )
         return path, params, extra_data
 
@@ -155,7 +156,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "exchange_name": self.exchange_name,
                 "normalize_function": self._get_exchange_info_normalize_function,
-            }
+            },
         )
         return path, {}, extra_data
 
@@ -186,7 +187,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "exchange_name": self.exchange_name,
                 "normalize_function": self._get_trades_normalize_function,
-            }
+            },
         )
         return path, params, extra_data
 
@@ -212,7 +213,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "exchange_name": self.exchange_name,
                 "normalize_function": self._get_account_normalize_function,
-            }
+            },
         )
         return path, {}, extra_data
 
@@ -241,7 +242,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "exchange_name": self.exchange_name,
                 "normalize_function": self._get_balance_normalize_function,
-            }
+            },
         )
         return path, params, extra_data
 
@@ -277,7 +278,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "symbol_name": symbol,
                 "asset_type": self.asset_type,
                 "request_type": "make_order",
-            }
+            },
         )
         side = "BUY" if offset.upper() in ("BUY", "OPEN") else "SELL"
         params = {
@@ -327,7 +328,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "request_type": "cancel_order",
                 "order_id": order_id,
-            }
+            },
         )
         params = {
             "symbol": self._params.get_symbol(symbol),
@@ -350,7 +351,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "asset_type": self.asset_type,
                 "request_type": "query_order",
                 "order_id": order_id,
-            }
+            },
         )
         params = {
             "symbol": self._params.get_symbol(symbol),
@@ -375,7 +376,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
                 "symbol_name": symbol or "",
                 "asset_type": self.asset_type,
                 "request_type": "get_open_orders",
-            }
+            },
         )
         return path, params, extra_data
 
