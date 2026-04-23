@@ -66,7 +66,9 @@ class BYDFiRequestData(Feed):
             sign_str = f"{api_key}{timestamp}{query_string}{body_str}"
 
             signature = hmac.new(
-                secret.encode("utf-8"), sign_str.encode("utf-8"), hashlib.sha256,
+                secret.encode("utf-8"),
+                sign_str.encode("utf-8"),
+                hashlib.sha256,
             ).hexdigest()
             return signature
         return ""
