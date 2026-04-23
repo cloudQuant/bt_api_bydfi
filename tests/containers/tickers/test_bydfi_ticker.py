@@ -21,7 +21,7 @@ class TestBYDFiRequestTickerData:
         """Test init_data with ticker info."""
         data = {"data": {"lastPrice": "50000.0", "bidPrice": "49990.0", "askPrice": "50010.0"}}
         ticker = BYDFiRequestTickerData(
-            data, symbol_name="BTCUSDT", asset_type="SPOT", has_been_json_encoded=True
+            data, symbol_name="BTCUSDT", asset_type="SPOT", has_been_json_encoded=True,
         )
         ticker.init_data()
 
@@ -30,7 +30,7 @@ class TestBYDFiRequestTickerData:
     def test_get_all_data(self):
         """Test get_all_data."""
         ticker = BYDFiRequestTickerData(
-            {}, symbol_name="BTCUSDT", asset_type="SPOT", has_been_json_encoded=True
+            {}, symbol_name="BTCUSDT", asset_type="SPOT", has_been_json_encoded=True,
         )
         result = ticker.get_all_data()
 
@@ -40,7 +40,7 @@ class TestBYDFiRequestTickerData:
     def test_str_representation(self):
         """Test __str__ method."""
         ticker = BYDFiRequestTickerData(
-            {}, symbol_name="BTCUSDT", asset_type="SPOT", has_been_json_encoded=True
+            {}, symbol_name="BTCUSDT", asset_type="SPOT", has_been_json_encoded=True,
         )
         result = str(ticker)
 
