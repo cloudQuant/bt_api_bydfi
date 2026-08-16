@@ -35,6 +35,7 @@ class BYDFiRequestData(Feed):
         }
 
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.data_queue = data_queue
         self.exchange_name = kwargs.get("exchange_name", "BYDFI___SPOT")
@@ -166,10 +167,13 @@ class BYDFiRequestData(Feed):
             self.data_queue.put(data)
 
     def connect(self):
+        """connect method"""
         pass
 
     def disconnect(self):
+        """disconnect method"""
         super().disconnect()
 
     def is_connected(self):
+        """is_connected method"""
         return True

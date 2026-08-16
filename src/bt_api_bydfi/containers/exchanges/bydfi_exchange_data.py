@@ -36,7 +36,9 @@ def _get_bydfi_config() -> Any | None:
 
 class BYDFiExchangeData(ExchangeData):
 
+    """Class BYDFiExchangeData"""
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.exchange_name = "bydfi"
         self.rest_url = "https://api.bydfi.com"
@@ -90,12 +92,15 @@ class BYDFiExchangeData(ExchangeData):
         return True
 
     def get_symbol(self, symbol: str) -> str:
+        """get_symbol method"""
         return symbol.replace("/", "-")
 
     def get_period(self, key: str) -> str:
+        """get_period method"""
         return self.kline_periods.get(key, key)
 
     def get_rest_path(self, key: str, **kwargs) -> str:
+        """get_rest_path method"""
         if key not in self.rest_paths or self.rest_paths[key] == "":
             self.raise_path_error(self.exchange_name, key)
         return self.rest_paths[key]
@@ -103,7 +108,9 @@ class BYDFiExchangeData(ExchangeData):
 
 class BYDFiExchangeDataSpot(BYDFiExchangeData):
 
+    """Class BYDFiExchangeDataSpot"""
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.asset_type = "spot"
         self.rest_paths = {}

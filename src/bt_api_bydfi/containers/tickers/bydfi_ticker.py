@@ -13,7 +13,9 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 class BYDFiRequestTickerData(TickerData):
 
+    """Class BYDFiRequestTickerData"""
     def __init__(self, ticker_info, symbol_name, asset_type, has_been_json_encoded=False) -> None:
+        """__init__ method"""
         super().__init__(ticker_info, has_been_json_encoded)
         self.symbol_name = symbol_name
         self.asset_type = asset_type
@@ -31,6 +33,7 @@ class BYDFiRequestTickerData(TickerData):
         self.has_been_init_data = False
 
     def init_data(self) -> Self:
+        """init_data method"""
         if not self.has_been_json_encoded:
             self.ticker_data = json.loads(self.ticker_info)
             self.has_been_json_encoded = True
@@ -53,30 +56,39 @@ class BYDFiRequestTickerData(TickerData):
         return self
 
     def get_symbol_name(self) -> str:
+        """get_symbol_name method"""
         return str(self.symbol_name)
 
     def get_exchange_name(self) -> str:
+        """get_exchange_name method"""
         return self.exchange_name
 
     def get_asset_type(self) -> str:
+        """get_asset_type method"""
         return str(self.asset_type)
 
     def get_local_update_time(self) -> float:
+        """get_local_update_time method"""
         return self.local_update_time
 
     def get_ticker_symbol_name(self) -> str | None:
+        """get_ticker_symbol_name method"""
         return self.ticker_symbol_name
 
     def get_last_price(self) -> float | None:
+        """get_last_price method"""
         return self.last_price
 
     def get_bid_price(self) -> float | None:
+        """get_bid_price method"""
         return self.bid_price
 
     def get_ask_price(self) -> float | None:
+        """get_ask_price method"""
         return self.ask_price
 
     def get_all_data(self) -> dict[str, Any]:
+        """get_all_data method"""
         return {
             "symbol_name": self.symbol_name,
             "ticker_symbol_name": self.ticker_symbol_name,

@@ -27,6 +27,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         }
 
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.exchange_name = kwargs.get("exchange_name", "BYDFI___SPOT")
 
@@ -55,10 +56,12 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return [ticker], ticker is not None
 
     def get_tick(self, symbol, extra_data=None, **kwargs):
+        """get_tick method"""
         path, params, extra_data = self._get_tick(symbol, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
     def async_get_tick(self, symbol, extra_data=None, **kwargs):
+        """async_get_tick method"""
         path, params, extra_data = self._get_tick(symbol, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params=params, extra_data=extra_data),
@@ -93,10 +96,12 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return [depth], depth is not None
 
     def get_depth(self, symbol, count=20, extra_data=None, **kwargs):
+        """get_depth method"""
         path, params, extra_data = self._get_depth(symbol, count, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
     def async_get_depth(self, symbol, count=20, extra_data=None, **kwargs):
+        """async_get_depth method"""
         path, params, extra_data = self._get_depth(symbol, count, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params=params, extra_data=extra_data),
@@ -133,10 +138,12 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return [klines], klines is not None
 
     def get_kline(self, symbol, period, count=20, extra_data=None, **kwargs):
+        """get_kline method"""
         path, params, extra_data = self._get_kline(symbol, period, count, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
     def async_get_kline(self, symbol, period, count=20, extra_data=None, **kwargs):
+        """async_get_kline method"""
         path, params, extra_data = self._get_kline(symbol, period, count, extra_data, **kwargs)
         self.submit(
             self.async_request(path, params=params, extra_data=extra_data),
@@ -167,6 +174,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return [symbols], symbols is not None
 
     def get_exchange_info(self, extra_data=None, **kwargs):
+        """get_exchange_info method"""
         path, params, extra_data = self._get_exchange_info(extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
@@ -198,6 +206,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return [trades], trades is not None
 
     def get_trades(self, symbol, count=10, extra_data=None, **kwargs):
+        """get_trades method"""
         path, params, extra_data = self._get_trades(symbol, count, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
@@ -224,6 +233,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return [data], data is not None
 
     def get_account(self, symbol="ALL", extra_data=None, **kwargs):
+        """get_account method"""
         path, params, extra_data = self._get_account(extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
@@ -253,6 +263,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return [data], data is not None
 
     def get_balance(self, symbol=None, extra_data=None, **kwargs):
+        """get_balance method"""
         path, params, extra_data = self._get_balance(symbol, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
@@ -303,6 +314,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         extra_data=None,
         **kwargs,
     ):
+        """make_order method"""
         path, params, extra_data = self._make_order(
             symbol,
             volume,
@@ -336,6 +348,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return path, params, extra_data
 
     def cancel_order(self, symbol, order_id, extra_data=None, **kwargs):
+        """cancel_order method"""
         path, params, extra_data = self._cancel_order(symbol, order_id, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
@@ -359,6 +372,7 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return path, params, extra_data
 
     def query_order(self, symbol, order_id, extra_data=None, **kwargs):
+        """query_order method"""
         path, params, extra_data = self._query_order(symbol, order_id, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)
 
@@ -380,5 +394,6 @@ class BYDFiRequestDataSpot(BYDFiRequestData):
         return path, params, extra_data
 
     def get_open_orders(self, symbol=None, extra_data=None, **kwargs):
+        """get_open_orders method"""
         path, params, extra_data = self._get_open_orders(symbol, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=extra_data)

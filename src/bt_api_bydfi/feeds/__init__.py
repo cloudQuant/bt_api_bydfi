@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from bt_api_bydfi.feeds.request_base import BYDFiRequestData
 from bt_api_bydfi.feeds.spot import BYDFiRequestDataSpot
 

@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from bt_api_bydfi.containers.exchanges import (
     BYDFiExchangeData,
     BYDFiExchangeDataSpot,
