@@ -107,3 +107,6 @@ markers = [
     "integration: Integration tests (may require external services)",
 ]
 
+
+[project.entry-points."bt_api.plugins"]
+bydfi = "bt_api_bydfi.plugin:register_plugin"
